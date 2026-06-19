@@ -9,38 +9,363 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as OrderSuccessRouteImport } from './routes/order-success'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as CartRouteImport } from './routes/cart'
+import { Route as B2bRouteImport } from './routes/b2b'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShopIndexRouteImport } from './routes/shop.index'
+import { Route as AccountIndexRouteImport } from './routes/account.index'
+import { Route as ShopCategoryRouteImport } from './routes/shop.$category'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
+import { Route as B2bRegisterRouteImport } from './routes/b2b.register'
+import { Route as B2bDashboardRouteImport } from './routes/b2b.dashboard'
+import { Route as B2bBulkRouteImport } from './routes/b2b.bulk'
+import { Route as AccountWishlistRouteImport } from './routes/account.wishlist'
+import { Route as AccountSettingsRouteImport } from './routes/account.settings'
+import { Route as AccountOrdersRouteImport } from './routes/account.orders'
+import { Route as AccountNotificationsRouteImport } from './routes/account.notifications'
+import { Route as AccountAddressesRouteImport } from './routes/account.addresses'
 
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderSuccessRoute = OrderSuccessRouteImport.update({
+  id: '/order-success',
+  path: '/order-success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const B2bRoute = B2bRouteImport.update({
+  id: '/b2b',
+  path: '/b2b',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShopRoute,
+} as any)
+const AccountIndexRoute = AccountIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AccountRoute,
+} as any)
+const ShopCategoryRoute = ShopCategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const B2bRegisterRoute = B2bRegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => B2bRoute,
+} as any)
+const B2bDashboardRoute = B2bDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => B2bRoute,
+} as any)
+const B2bBulkRoute = B2bBulkRouteImport.update({
+  id: '/bulk',
+  path: '/bulk',
+  getParentRoute: () => B2bRoute,
+} as any)
+const AccountWishlistRoute = AccountWishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountSettingsRoute = AccountSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountOrdersRoute = AccountOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountNotificationsRoute = AccountNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AccountRoute,
+} as any)
+const AccountAddressesRoute = AccountAddressesRouteImport.update({
+  id: '/addresses',
+  path: '/addresses',
+  getParentRoute: () => AccountRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/b2b': typeof B2bRouteWithChildren
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/order-success': typeof OrderSuccessRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/account/addresses': typeof AccountAddressesRoute
+  '/account/notifications': typeof AccountNotificationsRoute
+  '/account/orders': typeof AccountOrdersRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/wishlist': typeof AccountWishlistRoute
+  '/b2b/bulk': typeof B2bBulkRoute
+  '/b2b/dashboard': typeof B2bDashboardRoute
+  '/b2b/register': typeof B2bRegisterRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/shop/$category': typeof ShopCategoryRoute
+  '/account/': typeof AccountIndexRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/b2b': typeof B2bRouteWithChildren
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/order-success': typeof OrderSuccessRoute
+  '/account/addresses': typeof AccountAddressesRoute
+  '/account/notifications': typeof AccountNotificationsRoute
+  '/account/orders': typeof AccountOrdersRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/wishlist': typeof AccountWishlistRoute
+  '/b2b/bulk': typeof B2bBulkRoute
+  '/b2b/dashboard': typeof B2bDashboardRoute
+  '/b2b/register': typeof B2bRegisterRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/shop/$category': typeof ShopCategoryRoute
+  '/account': typeof AccountIndexRoute
+  '/shop': typeof ShopIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/account': typeof AccountRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/b2b': typeof B2bRouteWithChildren
+  '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact': typeof ContactRoute
+  '/order-success': typeof OrderSuccessRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/account/addresses': typeof AccountAddressesRoute
+  '/account/notifications': typeof AccountNotificationsRoute
+  '/account/orders': typeof AccountOrdersRoute
+  '/account/settings': typeof AccountSettingsRoute
+  '/account/wishlist': typeof AccountWishlistRoute
+  '/b2b/bulk': typeof B2bBulkRoute
+  '/b2b/dashboard': typeof B2bDashboardRoute
+  '/b2b/register': typeof B2bRegisterRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/shop/$category': typeof ShopCategoryRoute
+  '/account/': typeof AccountIndexRoute
+  '/shop/': typeof ShopIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/account'
+    | '/auth'
+    | '/b2b'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/order-success'
+    | '/shop'
+    | '/account/addresses'
+    | '/account/notifications'
+    | '/account/orders'
+    | '/account/settings'
+    | '/account/wishlist'
+    | '/b2b/bulk'
+    | '/b2b/dashboard'
+    | '/b2b/register'
+    | '/product/$slug'
+    | '/shop/$category'
+    | '/account/'
+    | '/shop/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/b2b'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/order-success'
+    | '/account/addresses'
+    | '/account/notifications'
+    | '/account/orders'
+    | '/account/settings'
+    | '/account/wishlist'
+    | '/b2b/bulk'
+    | '/b2b/dashboard'
+    | '/b2b/register'
+    | '/product/$slug'
+    | '/shop/$category'
+    | '/account'
+    | '/shop'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/account'
+    | '/auth'
+    | '/b2b'
+    | '/cart'
+    | '/checkout'
+    | '/contact'
+    | '/order-success'
+    | '/shop'
+    | '/account/addresses'
+    | '/account/notifications'
+    | '/account/orders'
+    | '/account/settings'
+    | '/account/wishlist'
+    | '/b2b/bulk'
+    | '/b2b/dashboard'
+    | '/b2b/register'
+    | '/product/$slug'
+    | '/shop/$category'
+    | '/account/'
+    | '/shop/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  B2bRoute: typeof B2bRouteWithChildren
+  CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContactRoute: typeof ContactRoute
+  OrderSuccessRoute: typeof OrderSuccessRoute
+  ShopRoute: typeof ShopRouteWithChildren
+  ProductSlugRoute: typeof ProductSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-success': {
+      id: '/order-success'
+      path: '/order-success'
+      fullPath: '/order-success'
+      preLoaderRoute: typeof OrderSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/b2b': {
+      id: '/b2b'
+      path: '/b2b'
+      fullPath: '/b2b'
+      preLoaderRoute: typeof B2bRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +373,152 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop/': {
+      id: '/shop/'
+      path: '/'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/account/': {
+      id: '/account/'
+      path: '/'
+      fullPath: '/account/'
+      preLoaderRoute: typeof AccountIndexRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/shop/$category': {
+      id: '/shop/$category'
+      path: '/$category'
+      fullPath: '/shop/$category'
+      preLoaderRoute: typeof ShopCategoryRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/b2b/register': {
+      id: '/b2b/register'
+      path: '/register'
+      fullPath: '/b2b/register'
+      preLoaderRoute: typeof B2bRegisterRouteImport
+      parentRoute: typeof B2bRoute
+    }
+    '/b2b/dashboard': {
+      id: '/b2b/dashboard'
+      path: '/dashboard'
+      fullPath: '/b2b/dashboard'
+      preLoaderRoute: typeof B2bDashboardRouteImport
+      parentRoute: typeof B2bRoute
+    }
+    '/b2b/bulk': {
+      id: '/b2b/bulk'
+      path: '/bulk'
+      fullPath: '/b2b/bulk'
+      preLoaderRoute: typeof B2bBulkRouteImport
+      parentRoute: typeof B2bRoute
+    }
+    '/account/wishlist': {
+      id: '/account/wishlist'
+      path: '/wishlist'
+      fullPath: '/account/wishlist'
+      preLoaderRoute: typeof AccountWishlistRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/settings': {
+      id: '/account/settings'
+      path: '/settings'
+      fullPath: '/account/settings'
+      preLoaderRoute: typeof AccountSettingsRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/orders': {
+      id: '/account/orders'
+      path: '/orders'
+      fullPath: '/account/orders'
+      preLoaderRoute: typeof AccountOrdersRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/notifications': {
+      id: '/account/notifications'
+      path: '/notifications'
+      fullPath: '/account/notifications'
+      preLoaderRoute: typeof AccountNotificationsRouteImport
+      parentRoute: typeof AccountRoute
+    }
+    '/account/addresses': {
+      id: '/account/addresses'
+      path: '/addresses'
+      fullPath: '/account/addresses'
+      preLoaderRoute: typeof AccountAddressesRouteImport
+      parentRoute: typeof AccountRoute
+    }
   }
 }
 
+interface AccountRouteChildren {
+  AccountAddressesRoute: typeof AccountAddressesRoute
+  AccountNotificationsRoute: typeof AccountNotificationsRoute
+  AccountOrdersRoute: typeof AccountOrdersRoute
+  AccountSettingsRoute: typeof AccountSettingsRoute
+  AccountWishlistRoute: typeof AccountWishlistRoute
+  AccountIndexRoute: typeof AccountIndexRoute
+}
+
+const AccountRouteChildren: AccountRouteChildren = {
+  AccountAddressesRoute: AccountAddressesRoute,
+  AccountNotificationsRoute: AccountNotificationsRoute,
+  AccountOrdersRoute: AccountOrdersRoute,
+  AccountSettingsRoute: AccountSettingsRoute,
+  AccountWishlistRoute: AccountWishlistRoute,
+  AccountIndexRoute: AccountIndexRoute,
+}
+
+const AccountRouteWithChildren =
+  AccountRoute._addFileChildren(AccountRouteChildren)
+
+interface B2bRouteChildren {
+  B2bBulkRoute: typeof B2bBulkRoute
+  B2bDashboardRoute: typeof B2bDashboardRoute
+  B2bRegisterRoute: typeof B2bRegisterRoute
+}
+
+const B2bRouteChildren: B2bRouteChildren = {
+  B2bBulkRoute: B2bBulkRoute,
+  B2bDashboardRoute: B2bDashboardRoute,
+  B2bRegisterRoute: B2bRegisterRoute,
+}
+
+const B2bRouteWithChildren = B2bRoute._addFileChildren(B2bRouteChildren)
+
+interface ShopRouteChildren {
+  ShopCategoryRoute: typeof ShopCategoryRoute
+  ShopIndexRoute: typeof ShopIndexRoute
+}
+
+const ShopRouteChildren: ShopRouteChildren = {
+  ShopCategoryRoute: ShopCategoryRoute,
+  ShopIndexRoute: ShopIndexRoute,
+}
+
+const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AccountRoute: AccountRouteWithChildren,
+  AuthRoute: AuthRoute,
+  B2bRoute: B2bRouteWithChildren,
+  CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContactRoute: ContactRoute,
+  OrderSuccessRoute: OrderSuccessRoute,
+  ShopRoute: ShopRouteWithChildren,
+  ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
