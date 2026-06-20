@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DGeXAQPT.js";import{t}from"./SiteLayout-CjBNDqKQ.js";var n=e(),r=()=>(0,n.jsx)(t,{children:(0,n.jsx)(`div`,{className:`container-x py-24 text-center`,children:(0,n.jsx)(`h1`,{className:`font-display text-3xl`,children:`Category not found`})})});export{r as notFoundComponent};

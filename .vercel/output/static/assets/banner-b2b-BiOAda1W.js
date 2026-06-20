@@ -1,0 +1,1 @@
+var e=`/assets/banner-b2b-Grd5RHu-.jpg`;export{e as t};
